@@ -6,6 +6,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 // import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import Navbar from "../Shared/Navbar";
 
 
 const Register = () => {
@@ -87,6 +88,7 @@ const Register = () => {
             <Helmet>
                 <title>Chakri Bazar ~ register</title>
             </Helmet>
+            <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className=" shrink-0 w-full max-w-sm shadow-xl bg-base-100 my-10">
                     <form onSubmit={handleRegister} className="card-body bg-base-200">

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-// import Navbar from "../Shared/Navbar";
+import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Link } from "react-router-dom";
 // import { useContext, useState } from "react";
@@ -49,7 +49,7 @@ const Login = () => {
             <Helmet>
                 <title>Chakri Bazar ~ login</title>
             </Helmet>
-            {/* <Navbar></Navbar> */}
+            <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className=" shrink-0 w-full max-w-sm shadow-xl bg-base-100">
                     <form className="card-body bg-base-200">
