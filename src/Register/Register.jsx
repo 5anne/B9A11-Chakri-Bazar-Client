@@ -1,14 +1,11 @@
-import { Helmet } from "react-helmet-async";
-import Navbar from "../Shared/Navbar";
-import Footer from "../Shared/Footer";
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet";
+import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+// import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { FcGoogle } from "react-icons/fc";
-import swal from "sweetalert";
-
 
 
 const Register = () => {
@@ -26,10 +23,18 @@ const Register = () => {
 
     const handleRegister = e => {
         e.preventDefault();
+        // console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
+        // console.log(form);
         const name = form.get('name');
+        // const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
+        // console.log(name);
+        // console.log(photo);
+        // console.log(email);
+        // console.log(password);
+
 
         setRegError('');
         setSuccess('');
@@ -47,7 +52,7 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 setSuccess('Successfully Registered!');
-                swal("Successfully Registered!");
+                // Swal("Successfully Registered!");
 
                 updateProfile(result.user, {
                     displayName: name,
@@ -57,7 +62,7 @@ const Register = () => {
                     .catch(error => console.error(error))
 
                 e.target.reset();
-                navigate(location?.state ? location.state : '/');
+                // navigate(location?.state ? location.state : '/');
 
             })
             .catch(error => {
@@ -80,13 +85,14 @@ const Register = () => {
     return (
         <div>
             <Helmet>
-                <title>Clay Pot || register</title>
+                <title>Chakri Bazar ~ register</title>
             </Helmet>
-            <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className=" shrink-0 w-full max-w-sm shadow-xl bg-base-100 my-10">
                     <form onSubmit={handleRegister} className="card-body bg-base-200">
-                        <h2 className="border-b-2 py-2 border-[#7e532e] text-lg text-center">REGISTER</h2>
+                        <div className="flex justify-center">
+                            <h2 className="border-b-2 py-2 border-blue-800 text-lg text-center w-36">REGISTER</h2>
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -111,17 +117,17 @@ const Register = () => {
                             </label>
                             <input type={show ? 'text' : 'password'} placeholder="******" name="password" className="input rounded-none input-bordered" required />
                             <span className="absolute right-8 top-[54px]" onClick={() => { setShow(!show) }}>{show ? <IoIosEye /> : <IoIosEyeOff />}</span>
-                            <div className="flex justify-between items-center gap-2 mt-4">
-                                <button className="bg-[#69421f] w-1/2 px-6 py-3 text-white font-semibold text-lg">Register</button>
+                            <div className="flex flex-col justify-center items-center gap-2 mt-4">
+                                <button className="bg-blue-950 w-1/2 px-6 py-3 text-white font-semibold text-lg">Register</button>
                                 <a href="#" className="label-text-alt link link-hover text-center text-base font-semibold w-1/2">Forgot password?</a>
                             </div>
                         </div>
                         <div>
                             {
-                                regError && <p className="text-red-700 text-center">{regError}</p>
+                                regError ? <p className="text-red-700 text-center">{regError}</p> : undefined
                             }
                             {
-                                success && <p className="text-green-700 text-center">{success}</p>
+                                success ? <p className="text-green-700 text-center">{success}</p> : undefined
                             }
                         </div>
                         <div>
@@ -131,7 +137,6 @@ const Register = () => {
                     </form>
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };
