@@ -2,8 +2,8 @@
 
 const Hired = () => {
     return (
-        <div>
-            <p className="text-center uppercase text-red-800 font-semibold mt-28">Hired</p>
+        <div className="bg-blue-50 py-6">
+            <p className="text-center uppercase text-red-800 font-semibold mt-20">Hired</p>
             <h1 className="font-bold text-center text-3xl font-display border-2 px-6 py-4 border-orange-800 uppercase my-8 w-1/2 mx-auto pb-4">Hired Applicants</h1>
             <div className="flex justify-between mx-10 mt-10 mb-28">
                 <div className="p-8 shadow-2xl hover:animate-pulse">

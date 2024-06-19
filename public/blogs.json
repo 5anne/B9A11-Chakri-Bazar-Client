@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "image": "https://i.postimg.cc/kg94cF3K/Authentication-Tokens-768x427.jpg",
+        "authorName": "Bard Pitt",
+        "comments": 9,
+        "topic": "Authentication",
+        "questions": "What is an access token? How do they work and where should we store them on the client-side?",
+        "answers": "An access token acts like a temporary key that grants permission to access specific resources on a server. Imagine it as a short-term pass that expires after a short duration (minutes or hours) to enhance security. When a user logs in successfully, an authorization server issues this token. The user's application includes the access token with subsequent requests to access resources. The server verifies the token with the authorization server, and if valid, grants access. Due to security concerns, access tokens should NOT be stored permanently on the client-side (browser local storage/cookies) as they can be intercepted. Here are some secure storage options for short-lived tokens during a session:  \n  * Local Storage: Implement security measures like HttpOnly flags and secure contexts (HTTPS).\n  * Session Storage: Offers better security as it gets cleared when the browser window/tab closes."
+    },
+    {
+        "id": 2,
+        "image": "https://i.postimg.cc/BvT7kHmP/OIP.jpg",
+        "authorName": "John Smith",
+        "comments": 5,
+        "topic": "Authentication",
+        "questions": "What is a refresh token? How do they work and where should we store them on the client-side?",
+        "answers": "A refresh token is a longer-lasting credential (days/weeks) used to obtain new access tokens. Think of it as a master key that you use to get new temporary keys (access tokens) when the original one expires.  Here's how it works:  \n  1. User logs in with username/password.\n  2. Authorization server validates credentials and issues an access token (and optionally a refresh token).\n  3. Access token is used for resource access.\n  4. When the access token expires, the client application can use the refresh token to request a new access token from the authorization server.\n  Due to its longer lifespan, storing refresh tokens on the client-side requires more caution. Consider using HttpOnly cookies with secure contexts (HTTPS) for some security. However, it's generally recommended to store them server-side for maximum security."
+    },
+    {
+        "id": 3,
+        "image": "https://i.postimg.cc/MHvD6QmD/R.png",
+        "authorName": "Bard Johnson",
+        "comments": 8,
+        "topic": "Backend_Frameworks",
+        "questions": "What is Express.js?",
+        "answers": "Express.js is a popular, open-source, minimal and flexible Node.js web framework for building web applications and APIs. It provides a robust set of features for handling HTTP requests, routing, middleware, and more. Think of it as a toolbox with tools to manage incoming requests, define routes for specific functionalities, and handle data processing in the backend of your application."
+    },
+    {
+        "id": 4,
+        "image": "https://i.postimg.cc/zfxKyfBP/R-1.png",
+        "authorName": "Alexjander",
+        "comments": 10,
+        "topic": "Backend_Frameworks",
+        "questions": "What is NestJS?",
+        "answers": "NestJS is a progressive TypeScript framework built on top of Express.js. It's designed for building efficient and scalable Node.js server-side applications. NestJS leverages object-oriented programming (OOP) concepts and decorators to create a structured and modular development experience. It provides additional features like dependency injection, modularity, and testing utilities compared to Express.js, making it easier to manage complex applications."
+    }
+]
