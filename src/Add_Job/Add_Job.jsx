@@ -6,11 +6,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { ThemeContext } from "../Provider/ThemeProvider";
 
 
 const Add_Job = () => {
     const [startDate, setStartDate] = useState(new Date());
     const { users } = useContext(AuthContext);
+    const { theme } = useContext(ThemeContext);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -48,9 +50,9 @@ const Add_Job = () => {
                 }
             })
     }
-    
+
     return (
-        <div>
+        <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
             <Helmet>
                 <title>Chakri Bazar ~ add_job</title>
             </Helmet>

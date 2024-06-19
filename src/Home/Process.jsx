@@ -27,7 +27,7 @@ const Process = () => {
                     <p className="font-bold text-center font-display text-xl text-blue-900 mt-4">All types of Support</p>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

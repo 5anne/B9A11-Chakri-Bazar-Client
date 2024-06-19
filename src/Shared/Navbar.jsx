@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { ThemeContext } from "../Provider/ThemeProvider";
 
 
 const Navbar = () => {
     const { users, logOut } = useContext(AuthContext);
     console.log(users);
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     const handleLogOut = () => {
         logOut()
@@ -35,19 +38,28 @@ const Navbar = () => {
             <div className="flex gap-3 items-center font-semibold text-gray-600">
                 {links}
             </div>
-            {
-                users ?
-                    <div className="flex gap-4 items-center">
-                        <div className="tooltip tooltip-bottom" data-tip={users.displayName}>
-                            <img className="w-10 h-10 rounded-full border-2 border-lime-900" src={users.photoURL} alt="" />
+            <div className="flex gap-3 items-center">
+                {
+                    users ?
+                        <div className="flex gap-4 items-center">
+                            <div className="tooltip tooltip-bottom" data-tip={users.displayName}>
+                                <img className="w-10 h-10 rounded-full border-2 border-lime-900" src={users.photoURL} alt="" />
+                            </div>
+                            <Link to="/login"><button onClick={handleLogOut} className="btn btn-outline btn-info">Log Out</button></Link>
+                        </div> :
+                        <div className="flex gap-4">
+                            <Link to="/login"><button className="btn btn-outline btn-info">Log In</button></Link>
+                            <Link to="/register"><button className="btn btn-outline btn-info">Register</button></Link>
                         </div>
-                        <Link to="/login"><button onClick={handleLogOut} className="btn btn-outline btn-info">Log Out</button></Link>
-                    </div> :
-                    <div className="flex gap-4">
-                        <Link to="/login"><button className="btn btn-outline btn-info">Log In</button></Link>
-                        <Link to="/register"><button className="btn btn-outline btn-info">Register</button></Link>
-                    </div>
-            }
+                }
+                <div>
+                    {
+                        theme ?
+                            <div onClick={toggleTheme} className="text-2xl"><MdOutlineDarkMode /></div> :
+                            <div onClick={toggleTheme} className="text-2xl"><MdDarkMode /></div>
+                    }
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,12 +1,14 @@
 import { Helmet } from "react-helmet";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import BlogsDetails from "./BlogsDetails";
+import { ThemeContext } from "../Provider/ThemeProvider";
 
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
+    const { theme } = useContext(ThemeContext);
 
     useEffect(() => {
         fetch('/blogs.json')
@@ -16,7 +18,7 @@ const Blogs = () => {
     console.log(blogs)
 
     return (
-        <div>
+        <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
             <Helmet>
                 <title>Chakri Bazar ~ blogs</title>
             </Helmet>

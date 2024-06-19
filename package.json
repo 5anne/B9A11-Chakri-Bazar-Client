@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "aos": "^3.0.0-beta.6",
     "firebase": "^10.12.2",
+    "framer-motion": "^11.2.11",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
