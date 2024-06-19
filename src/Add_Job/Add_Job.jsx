@@ -119,13 +119,13 @@ const Add_Job = () => {
                                 <label className="label">
                                     <span className="label-text font-display">User Email</span>
                                 </label>
-                                <input type="email" name="email" defaultValue={users.email} className="input input-bordered" readOnly />
+                                <input type="email" name="email" defaultValue={users?.email} className="input input-bordered" readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-display">User Name</span>
                                 </label>
-                                <input type="text" name="name" defaultValue={users.displayName} className="input input-bordered" readOnly />
+                                <input type="text" name="name" defaultValue={users?.displayName} className="input input-bordered" readOnly />
                             </div>
                         </div>
                     </div>

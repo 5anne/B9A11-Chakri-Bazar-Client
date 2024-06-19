@@ -2,11 +2,13 @@ import { useLoaderData } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import Navbar from "../Shared/Navbar";
 import DatePicker from "react-datepicker";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const UpdateJobs = () => {
+    const { users } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
     const addedJobs = useLoaderData();
     const { image, job_name, jobCategory_name, salary_range, job_description, job_posted_at, deadline, applicants_number } = addedJobs;
@@ -24,15 +26,16 @@ const UpdateJobs = () => {
         const deadline = form.deadline.value;
         const applicants_number = form.applicants_number.value;
 
-        const updateJobs = { 
-            image, 
-            job_name, 
-            jobCategory_name, 
-            salary_range, 
-            job_description, 
-            job_posted_at, 
-            deadline, 
-            applicants_number }
+        const updateJobs = {
+            image,
+            job_name,
+            jobCategory_name,
+            salary_range,
+            job_description,
+            job_posted_at,
+            deadline,
+            applicants_number
+        }
         console.log(updateJobs);
 
         fetch(`http://localhost:5000/addedJobs/${addedJobs._id}`, {
@@ -120,7 +123,7 @@ const UpdateJobs = () => {
                                 </label>
                                 <input type="number" name="applicants_number" defaultValue={applicants_number} className="input input-bordered" required />
                             </div>
-                            {/* <div className="form-control">
+                            <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-display">User Email</span>
                                 </label>
@@ -131,7 +134,7 @@ const UpdateJobs = () => {
                                     <span className="label-text font-display">User Name</span>
                                 </label>
                                 <input type="text" name="name" defaultValue={users?.displayName} className="input input-bordered" readOnly />
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                     <div className="flex justify-center">

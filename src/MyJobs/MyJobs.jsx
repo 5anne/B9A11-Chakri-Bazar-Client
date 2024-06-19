@@ -3,6 +3,7 @@ import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 
 const MyJobs = () => {
@@ -15,6 +16,36 @@ const MyJobs = () => {
             .then(data => setMyJobs(data))
     }, [])
     console.log(myJobs);
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/addedJobs/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            const remainingJobs = myJobs?.filter(item => item._id !== id);
+                            setMyJobs(remainingJobs);
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted. Please Reload!",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
 
     return (
         <div>
@@ -48,7 +79,7 @@ const MyJobs = () => {
                                         <Link to={`/updateJobs/${myJob._id}`}><button className="btn btn-outline btn-info">Update</button></Link>
                                     </td>
                                     <td>
-                                        <button className="btn btn-outline btn-error">Delete</button>
+                                        <button onClick={() => handleDelete(myJob._id)} className="btn btn-outline btn-error">Delete</button>
                                     </td>
                                 </tr>)
                             }
