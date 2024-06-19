@@ -19,11 +19,12 @@ const Navbar = () => {
 
     const links = <>
         <NavLink to="/" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Home</NavLink>
+        <NavLink to="/blogs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Blogs</NavLink>
+        <NavLink to="/add_job" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Add Job</NavLink>
         <NavLink to="/all_jobs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>All Jobs</NavLink>
         <NavLink to="/applied_jobs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Applied Jobs</NavLink>
-        <NavLink to="/add_job" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Add Job</NavLink>
         <NavLink to="/my_jobs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>My Jobs</NavLink>
-        <NavLink to="/blogs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Blogs</NavLink>
+
     </>
     return (
         <div className="flex justify-between items-center bg-gradient-to-r from-gray-200 to-gray-200 p-4 mb-8">

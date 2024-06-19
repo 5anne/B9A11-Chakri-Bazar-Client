@@ -5,6 +5,7 @@ import Register from "../Register/Register";
 import Root from "../Root/Root";
 import ViewJobDetails from "../Home/JobCategory/ViewJobDetails";
 import Blogs from "../Blogs/Blogs";
+import Add_Job from "../Add_Job/Add_Job";
 
 
 const Routes = createBrowserRouter([
@@ -32,6 +33,10 @@ const Routes = createBrowserRouter([
             {
                 path: "/blogs",
                 element: <Blogs></Blogs>
+            },
+            {
+                path: "/add_job",
+                element: <Add_Job></Add_Job>
             }
         ]
     },
