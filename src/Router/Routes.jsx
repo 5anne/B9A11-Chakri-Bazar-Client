@@ -6,6 +6,8 @@ import Root from "../Root/Root";
 import ViewJobDetails from "../Home/JobCategory/ViewJobDetails";
 import Blogs from "../Blogs/Blogs";
 import Add_Job from "../Add_Job/Add_Job";
+import MyJobs from "../MyJobs/MyJobs";
+import UpdateJobs from "../MyJobs/UpdateJobs";
 
 
 const Routes = createBrowserRouter([
@@ -37,6 +39,15 @@ const Routes = createBrowserRouter([
             {
                 path: "/add_job",
                 element: <Add_Job></Add_Job>
+            },
+            {
+                path: "/my_jobs",
+                element: <MyJobs></MyJobs>
+            },
+            {
+                path: "/updateJobs/:_id",
+                element: <UpdateJobs></UpdateJobs>,
+                loader: ({ params }) => fetch(`http://localhost:5000/addedJobs/${params._id}`)
             }
         ]
     },
