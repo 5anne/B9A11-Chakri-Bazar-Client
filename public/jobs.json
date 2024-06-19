@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "name": "Acme Corp.",
+        "jobTitle": "Software Engineer",
+        "jobPostingDate": "2024-06-18",
+        "applicationDeadline": "2024-07-15",
+        "salaryRange": "$80,000 - $100,000",
+        "jobApplicantsNumber": 25,
+        "jobType": "Remote",
+        "jobDescription": "We are searching for a talented Software Engineer to join our growing team. You will be responsible for designing, developing, and maintaining our next-generation software applications. Experience with Java, Spring Framework, and cloud technologies (AWS/Azure) is a plus."
+    },
+    {
+        "id": 2,
+        "name": "Green Tech Solutions",
+        "jobTitle": "Marketing Manager",
+        "jobPostingDate": "2024-06-10",
+        "applicationDeadline": "2024-06-30",
+        "salaryRange": "$75,000 - $90,000",
+        "jobApplicantsNumber": 12,
+        "jobType": "On-Site",
+        "jobDescription": "Green Tech Solutions is looking for a passionate Marketing Manager to lead our digital marketing efforts. You will be responsible for developing and executing marketing campaigns that drive brand awareness, website traffic, and lead generation. Experience with social media marketing, SEO, and content marketing is preferred."
+    },
+    {
+        "id": 3,
+        "name": "CloudX Inc.",
+        "jobTitle": "Data Analyst",
+        "jobPostingDate": "2024-06-14",
+        "applicationDeadline": "Ongoing",
+        "salaryRange": "Competitive",
+        "jobApplicantsNumber": 5,
+        "jobType": "Hybrid",
+        "jobDescription": "CloudX Inc. is seeking a Data Analyst to join our team. You will be responsible for collecting, cleaning, analyzing, and visualizing data to support business decisions. Experience with SQL databases, data visualization tools (Tableau/Power BI), and basic statistical analysis is required."
+    },
+    {
+        "id": 4,
+        "name": "Starlight Studios",
+        "jobTitle": "Graphic Designer",
+        "jobPostingDate": "2024-06-12",
+        "applicationDeadline": "2024-06-27",
+        "salaryRange": "$50,000 - $65,000",
+        "jobApplicantsNumber": 38,
+        "jobType": "Part-Time",
+        "jobDescription": "Starlight Studios is seeking a talented Graphic Designer to create visually appealing graphics for our marketing materials and social media platforms. Proficiency in Adobe Photoshop, Illustrator, and InDesign is required."
+    },
+    {
+        "id": 5,
+        "name": "FinTech Solutions",
+        "jobTitle": "Financial Analyst",
+        "jobPostingDate": "2024-06-17",
+        "applicationDeadline": "2024-07-05",
+        "salaryRange": "$90,000 - $120,000",
+        "jobApplicantsNumber": 10,
+        "jobType": "Remote",
+        "jobDescription": "FinTech Solutions is looking for a skilled Financial Analyst to join our team. You will be responsible for financial modeling, valuation analysis, and investment research. A strong understanding of financial accounting principles and experience with financial modeling tools (Excel) is required."
+    },
+    {
+        "id": 6,
+        "name": "Health & Wellness Co.",
+        "jobTitle": "Registered Nurse",
+        "jobPostingDate": "2024-06-15",
+        "applicationDeadline": "2024-06-29",
+        "salaryRange": "Varies depending on experience",
+        "jobApplicantsNumber": 18,
+        "jobType": "On-Site",
+        "jobDescription": "Health & Wellness Co. is seeking a compassionate and qualified Registered Nurse to join our team. You will be responsible for providing direct patient care, administering medications, and monitoring vital signs. A valid RN license and experience in a hospital setting is preferred."
+    },
+    {
+        "id": 7,
+        "name": "EduTech Inc.",
+        "jobTitle": "Instructional Designer",
+        "jobPostingDate": "2024-06-11",
+        "applicationDeadline": "2024-07-10",
+        "salaryRange": "$60,000 - $80,000",
+        "jobApplicantsNumber": 15,
+        "jobType": "Hybrid",
+        "jobDescription": "EduTech Inc. is looking for a creative Instructional Designer to develop engaging and effective online learning courses. You will be responsible for analyzing learning needs, designing course content, and selecting appropriate instructional methods. Experience with eLearning authoring tools (Articulate Storyline/Adobe Captivate) is a plus."
+    },
+    {
+        "id": 8,
+        "name": "Creative Agency",
+        "jobTitle": "Social Media Specialist",
+        "jobPostingDate": "2024-06-13",
+        "applicationDeadline": "2024-06-28",
+        "salaryRange": "$45,000 - $55,000",
+        "jobApplicantsNumber": 22,
+        "jobType": "Part-Time",
+        "jobDescription": "Creative Agency is seeking a creative and social media-savvy individual to join our team as a Social Media Specialist. You will be responsible for developing and managing our social media presence across various platforms (Facebook, Instagram, Twitter). This includes creating engaging content, scheduling posts, and interacting with followers. Experience with social media management tools (Hootsuite/Buffer) and a strong understanding of social media marketing trends is preferred."
+    }
+]

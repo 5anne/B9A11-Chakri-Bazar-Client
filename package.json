@@ -10,15 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "firebase": "^10.12.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
+    "react-animate-on-scroll": "^2.1.9",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^5.2.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.23.1",
+    "react-tabs": "^6.0.2",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.12.0"
   },
