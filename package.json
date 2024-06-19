@@ -12,6 +12,7 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "aos": "^3.0.0-beta.6",
+    "axios": "^1.7.2",
     "firebase": "^10.12.2",
     "framer-motion": "^11.2.11",
     "localforage": "^1.10.0",
