@@ -7,7 +7,7 @@ const Banner = () => {
         <div>
             <Carousel autoPlay={true} showArrows={true} showThumbs={false} interval={1000}>
                 <div className="">
-                    <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.postimg.cc/T1pkBWzc/we-are-hiring-digital-collage-23-2149667041.jpg)' }}>
+                    <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.postimg.cc/rpjQmJcJ/we-are-hiring-digital-collage-23-2149667059.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
@@ -19,7 +19,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.postimg.cc/rpjQmJcJ/we-are-hiring-digital-collage-23-2149667059.jpg)' }}>
+                    <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.postimg.cc/bJKf36K1/medium-shot-man-working-laptop-23-2150652902.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">

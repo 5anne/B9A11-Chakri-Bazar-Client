@@ -7,6 +7,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import Navbar from "../Shared/Navbar";
+import Footer from "../Shared/Footer";
 
 
 const Register = () => {
@@ -139,6 +140,7 @@ const Register = () => {
                     </form>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
