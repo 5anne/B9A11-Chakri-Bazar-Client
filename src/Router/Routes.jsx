@@ -12,6 +12,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import AllJobs from "../AllJobs/AllJobs";
 import ViewDetails from "../AllJobs/ViewDetails";
 import AppliedJobs from "../AppliedJobs/AppliedJobs";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const Routes = createBrowserRouter([
@@ -33,9 +34,9 @@ const Routes = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: "/view_details/:id",
-                element: <ViewJobDetails></ViewJobDetails>,
-                // loader: ({params}) => fetch(`/jobs.json/${params.id}`)
+                path: "/view_details/:_id",
+                element: <PrivateRoutes><ViewJobDetails></ViewJobDetails></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/jobsJson/${params._id}`)
             },
             {
                 path: "/blogs",
@@ -43,15 +44,15 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/add_job",
-                element: <Add_Job></Add_Job>
+                element: <PrivateRoutes><Add_Job></Add_Job></PrivateRoutes>
             },
             {
                 path: "/my_jobs",
-                element: <MyJobs></MyJobs>
+                element: <PrivateRoutes><MyJobs></MyJobs></PrivateRoutes>
             },
             {
                 path: "/updateJobs/:_id",
-                element: <UpdateJobs></UpdateJobs>,
+                element: <PrivateRoutes><UpdateJobs></UpdateJobs></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/addedJobs/${params._id}`)
             },
             {
@@ -60,12 +61,12 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/jobDetails/:_id",
-                element: <ViewDetails></ViewDetails>,
+                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params._id}`)
             },
             {
                 path: "/applied_jobs",
-                element: <AppliedJobs></AppliedJobs>,
+                element: <PrivateRoutes><AppliedJobs></AppliedJobs></PrivateRoutes>,
                 loader: () => fetch('http://localhost:5000/appliedJobs')
             }
         ]

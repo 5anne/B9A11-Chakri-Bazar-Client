@@ -9,6 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { useContext, useEffect } from 'react';
 import { ThemeContext } from "../Provider/ThemeProvider";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     const { theme } = useContext(ThemeContext);
@@ -22,6 +23,9 @@ const Home = () => {
     }, [])
     return (
         <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
+            <Helmet>
+                <title>Chakri Bazar ~ Home Page</title>
+            </Helmet>
             <Navbar></Navbar>
             <Banner></Banner>
             <JobCategory></JobCategory>

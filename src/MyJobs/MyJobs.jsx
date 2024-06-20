@@ -2,12 +2,13 @@ import { Helmet } from "react-helmet";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { ThemeContext } from "../Provider/ThemeProvider";
 
 
 const MyJobs = () => {
-
+    const { theme } = useContext(ThemeContext);
     const [myJobs, setMyJobs] = useState([])
 
     useEffect(() => {
@@ -48,26 +49,27 @@ const MyJobs = () => {
     }
 
     return (
-        <div>
+        <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
             <Helmet>
-                <title>Chakri Bazar ~ myJobs</title>
+                <title>Chakri Bazar ~ My Jobs</title>
             </Helmet>
             <Navbar></Navbar>
             <div>
-                <div className="overflow-x-auto m-16">
+                <div className="m-16 bg-yellow-900 p-8">
                     <h1 className="font-bold font-serif text-3xl text-center text-blue-950 mb-8">All Added Jobs</h1>
-                    <table className="table table-xs table-pin-rows table-pin-cols">
+                    <table className="table table-xs table-pin-rows table-pin-cols ">
                         <thead>
-                            <tr>
+                            <tr className="bg-yellow-950 text-gray-400">
                                 <td>Job Name</td>
                                 <td>Job Type</td>
                                 <td>Salary</td>
                                 <td>Posted At</td>
                                 <td>Deadline</td>
-                                <th></th>
+                                <th className="bg-yellow-950"></th>
+                                <th className="bg-yellow-950"></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="text-gray-400">
                             {
                                 myJobs?.map(myJob => <tr key={myJob._id}>
                                     <td>{myJob.job_name}</td>

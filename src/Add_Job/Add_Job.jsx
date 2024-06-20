@@ -54,7 +54,7 @@ const Add_Job = () => {
     return (
         <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
             <Helmet>
-                <title>Chakri Bazar ~ add_job</title>
+                <title>Chakri Bazar ~ Add Job</title>
             </Helmet>
             <Navbar></Navbar>
             <div className="md:p-24">

@@ -5,9 +5,12 @@ import DatePicker from "react-datepicker";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { ThemeContext } from "../Provider/ThemeProvider";
+import { Helmet } from "react-helmet";
 
 
 const UpdateJobs = () => {
+    const { theme } = useContext(ThemeContext);
     const { users } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
     const addedJobs = useLoaderData();
@@ -61,7 +64,10 @@ const UpdateJobs = () => {
     }
 
     return (
-        <div>
+        <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
+            <Helmet>
+                <title>Chakri Bazar ~ Update Jobs || {job_name}</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="md:p-24">
                 <form onSubmit={handleUpdate} action="" className="p-10 bg-orange-200">

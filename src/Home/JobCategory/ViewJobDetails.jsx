@@ -1,30 +1,22 @@
 import { Helmet } from "react-helmet";
 import Navbar from "../../Shared/Navbar";
 import Footer from "../../Shared/Footer";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../../Provider/ThemeProvider";
 
 
 const ViewJobDetails = () => {
-    const { id } = useParams();
-    const idInt = parseInt(id);
-    const [jobDetails, setJobDetails] = useState([]);
+    const { theme } = useContext(ThemeContext);
+    const jobDetails = useLoaderData();
 
-    useEffect(() => {
-        fetch('/jobs.json')
-            .then(res => res.json())
-            .then(data => {
-                const tempDetails = data?.find(jobData => jobData.id === idInt);
-                setJobDetails(tempDetails);
-            })
-    }, [idInt])
     console.log(jobDetails);
     const { name, jobTitle, jobApplicantsNumber, salaryRange, jobPostingDate, applicationDeadline, jobType, jobDescription } = jobDetails;
 
     return (
-        <div>
+        <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
             <Helmet>
-                <title>Chakri Bazar ~ View_Job_Details||</title>
+                <title>Chakri Bazar ~ View_Job_Details|| {jobTitle}</title>
             </Helmet>
             <Navbar></Navbar>
             <div className="flex justify-center w-1/2 mx-auto my-20">
@@ -37,9 +29,6 @@ const ViewJobDetails = () => {
                         <p>Posted At: {jobPostingDate}</p>
                         <p>Deadline: {applicationDeadline}</p>
                         <p>Type of the Job: {jobType}</p>
-                        <div className="card-actions justify-end">
-                            {/* <Link to={`/view_details/${id}`}><button className="btn btn-accent">View Details</button></Link> */}
-                        </div>
                     </div>
                     <div className="w-1/2"><span className="font-bold text-blue-950 text-xl">Description:</span> {jobDescription}</div>
                 </div>

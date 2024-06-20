@@ -29,30 +29,26 @@ const AllJobs = () => {
         console.log(e.target);
         const form = e.target;
         const search = form.search.value;
-        console.log(search);
+        // console.log(search);
 
         const filteredJobs = jobData?.filter((data) => {
             const value = data.jobTitle;
-            const valueType = value.toUpperCase();
-            const searchType = search.toUpperCase();
-            console.log(typeof (valueType));
-            console.log(typeof (searchType));
             return value.toUpperCase() === search.toUpperCase();
         })
-        console.log(filteredJobs);
+        // console.log(filteredJobs);
         setDisplayJobData(filteredJobs);
     }
     console.log(displayJobData);
     return (
         <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
             <Helmet>
-                <title>Chakri Bazar ~ all_jobs</title>
+                <title>Chakri Bazar ~ All Jobs</title>
             </Helmet>
             <Navbar></Navbar>
             <form onSubmit={handleSearch} action="">
                 <label className="input input-bordered flex items-center gap-2 w-1/2 mx-auto">
                     <input type="text" name="search" className="grow" placeholder="Search Job Title: Content Writer, Sales Manager, etc..." />
-                    <button className="btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg></button>
+                    <button className=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg></button>
                 </label>
             </form>
             <div>

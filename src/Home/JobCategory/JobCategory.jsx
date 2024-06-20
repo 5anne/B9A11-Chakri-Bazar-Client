@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const JobCategory = () => {
+    const { users } = useContext(AuthContext);
     const [jobs, setJobs] = useState([]);
     const [onSiteJobs, setOnSiteJobs] = useState([]);
     const [remoteJobs, setRemoteJobs] = useState([]);
@@ -14,7 +17,7 @@ const JobCategory = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch('/jobs.json')
+        fetch('http://localhost:5000/jobsJson')
             .then(res => res.json())
             .then(data => {
                 setLoading(true);
@@ -33,8 +36,19 @@ const JobCategory = () => {
             });
     }, [loading, jobs])
 
+    const notify = () => {
+        if (!users?.email) {
+            Swal.fire({
+                title: 'Warning!',
+                text: 'You Have to Login at First!',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            })
+        }
+    }
+
     return (
-        <div className="my-16">
+        <div className="my-16 mx-12">
             <p className="text-center uppercase text-red-800 font-semibold mt-28">Category</p>
             <ScrollAnimation duration={5}
                 animateIn='hinge'
@@ -52,19 +66,19 @@ const JobCategory = () => {
 
                 <TabPanel>
 
-                    <div className="grid grid-cols-3 gap-10 mx-10 my-8">
+                    <div className="grid grid-cols-3 gap-10 my-8">
                         {
-                            jobs?.map(job => <div key={job.id}>
-                                <div className="card w-96 bg-base-100 border-2 border-teal-800 shadow-xl">
-                                    <div className="card-body">
-                                        <h2 className="card-title">{job.name}</h2>
+                            jobs?.map(job => <div key={job._id}>
+                                <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
+                                    <div className="card-body text-gray-300">
+                                        <h2 className="card-title text-gray-950">{job.name}</h2>
                                         <p>{job.jobTitle}</p>
                                         <p>Number of Applicants: {job.jobApplicantsNumber}</p>
                                         <p>Estimated Salary: {job.salaryRange}</p>
                                         <p>Posted At: {job.jobPostingDate}</p>
                                         <p>Deadline: {job.applicationDeadline}</p>
                                         <div className="card-actions justify-end">
-                                            <Link to={`/view_details/${job.id}`}><button className="btn btn-accent">View Details</button></Link>
+                                            <Link to={`/view_details/${job._id}`}><button onClick={notify} className="btn btn-accent">View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -74,19 +88,19 @@ const JobCategory = () => {
 
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 mx-10 my-8">
+                    <div className="grid grid-cols-2 gap-10 my-8">
                         {
-                            onSiteJobs?.map(job => <div key={job.id}>
-                                <div className="card w-96 bg-base-100 border-2 border-teal-800 shadow-xl">
-                                    <div className="card-body">
-                                        <h2 className="card-title">{job.name}</h2>
+                            onSiteJobs?.map(job => <div key={job._id}>
+                                <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
+                                    <div className="card-body text-gray-300">
+                                        <h2 className="card-title text-gray-950">{job.name}</h2>
                                         <p>{job.jobTitle}</p>
                                         <p>Number of Applicants: {job.jobApplicantsNumber}</p>
                                         <p>Estimated Salary: {job.salaryRange}</p>
                                         <p>Posted At: {job.jobPostingDate}</p>
                                         <p>Deadline: {job.applicationDeadline}</p>
                                         <div className="card-actions justify-end">
-                                            <Link to={`/view_details/${job.id}`}><button className="btn btn-accent">View Details</button></Link>
+                                            <Link to={`/view_details/${job._id}`}><button onClick={notify} className="btn btn-accent">View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -95,19 +109,19 @@ const JobCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 mx-10 my-8">
+                    <div className="grid grid-cols-2 gap-10 my-8">
                         {
-                            remoteJobs?.map(job => <div key={job.id}>
-                                <div className="card w-96 bg-base-100 border-2 border-teal-800 shadow-xl">
-                                    <div className="card-body">
-                                        <h2 className="card-title">{job.name}</h2>
+                            remoteJobs?.map(job => <div key={job._id}>
+                                <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
+                                    <div className="card-body text-gray-300">
+                                        <h2 className="card-title text-gray-950">{job.name}</h2>
                                         <p>{job.jobTitle}</p>
                                         <p>Number of Applicants: {job.jobApplicantsNumber}</p>
                                         <p>Estimated Salary: {job.salaryRange}</p>
                                         <p>Posted At: {job.jobPostingDate}</p>
                                         <p>Deadline: {job.applicationDeadline}</p>
                                         <div className="card-actions justify-end">
-                                            <Link to={`/view_details/${job.id}`}><button className="btn btn-accent">View Details</button></Link>
+                                            <Link to={`/view_details/${job._id}`}><button onClick={notify} className="btn btn-accent">View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -116,19 +130,19 @@ const JobCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 mx-10 my-8">
+                    <div className="grid grid-cols-2 gap-10 my-8">
                         {
-                            hybridJobs?.map(job => <div key={job.id}>
-                                <div className="card w-96 bg-base-100 border-2 border-teal-800 shadow-xl">
-                                    <div className="card-body">
-                                        <h2 className="card-title">{job.name}</h2>
+                            hybridJobs?.map(job => <div key={job._id}>
+                                <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
+                                    <div className="card-body text-gray-300">
+                                        <h2 className="card-title text-gray-950">{job.name}</h2>
                                         <p>{job.jobTitle}</p>
                                         <p>Number of Applicants: {job.jobApplicantsNumber}</p>
                                         <p>Estimated Salary: {job.salaryRange}</p>
                                         <p>Posted At: {job.jobPostingDate}</p>
                                         <p>Deadline: {job.applicationDeadline}</p>
                                         <div className="card-actions justify-end">
-                                            <Link to={`/view_details/${job.id}`}><button className="btn btn-accent">View Details</button></Link>
+                                            <Link to={`/view_details/${job._id}`}><button onClick={notify} className="btn btn-accent">View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -137,19 +151,19 @@ const JobCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 mx-10 my-8">
+                    <div className="grid grid-cols-2 gap-10 my-8">
                         {
-                            partTimeJobs?.map(job => <div key={job.id}>
-                                <div className="card w-96 bg-base-100 border-2 border-teal-800 shadow-xl">
-                                    <div className="card-body">
-                                        <h2 className="card-title">{job.name}</h2>
+                            partTimeJobs?.map(job => <div key={job._id}>
+                                <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
+                                    <div className="card-body text-gray-300">
+                                        <h2 className="card-title text-gray-950">{job.name}</h2>
                                         <p>{job.jobTitle}</p>
                                         <p>Number of Applicants: {job.jobApplicantsNumber}</p>
                                         <p>Estimated Salary: {job.salaryRange}</p>
                                         <p>Posted At: {job.jobPostingDate}</p>
                                         <p>Deadline: {job.applicationDeadline}</p>
                                         <div className="card-actions justify-end">
-                                            <Link to={`/view_details/${job.id}`}><button className="btn btn-accent">View Details</button></Link>
+                                            <Link to={`/view_details/${job._id}`}><button onClick={notify} className="btn btn-accent">View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
