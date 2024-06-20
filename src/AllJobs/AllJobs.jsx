@@ -12,17 +12,54 @@ const AllJobs = () => {
     const { theme } = useContext(ThemeContext);
     const { loading } = useContext(AuthContext);
     const [jobData, setJobData] = useState([])
-    const [displayJobData, setDisplayJobData] = useState([])
+    const [displayJobData, setDisplayJobData] = useState([]);
+    const [count, setCount] = useState(0);
+    const [jobsPerPage, setJobsPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(0);
+    const numberOfPages = Math.ceil(count / jobsPerPage);
+    const pages = [...Array(numberOfPages).keys()];
+
+    const handlePage = e => {
+        console.log(e.target.value);
+        const value = parseInt(e.target.value);
+        console.log(value);
+        setJobsPerPage(value);
+        setCurrentPage(0);
+    }
+
+    const handlePrevious = e => {
+        e.preventDefault();
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+    const handleNext = e => {
+        e.preventDefault();
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobs')
+        axios.get('http://localhost:5000/allJobsCount')
             .then(data => {
                 if (!loading) {
-                    setJobData(data.data);
-                    setDisplayJobData(data.data);
+                    setCount(data.data.count);
                 }
             })
     }, [loading])
+    console.log(count);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/allJobs?page=${currentPage}&size=${jobsPerPage}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(currentPage, jobsPerPage);
+                setJobData(data);
+                setDisplayJobData(data);
+
+            })
+    }, [currentPage, jobsPerPage])
 
     const handleSearch = e => {
         e.preventDefault();
@@ -76,12 +113,27 @@ const AllJobs = () => {
                                     <td>{job.jobPostingDate}</td>
                                     <td>{job.applicationDeadline}</td>
                                     <td>{job.salaryRange}</td>
-                                    <td><Link to={`/jobDetails/${job._id}`}><button className="btn bg-rose-900 text-gray-300">View Details</button></Link></td>
+                                    <td><Link to={`/ jobDetails / ${job._id}`}><button className="btn bg-rose-900 text-gray-300">View Details</button></Link></td>
                                 </tr>)
                             }
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className="flex justify-center items-center gap-2 mb-8">
+                <button onClick={handlePrevious} className='btn'>Prev</button>
+                {
+                    pages.map(page => <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={currentPage === page ? 'bg-black rounded-full text-white btn' : undefined}>{page}</button>)
+                }
+                <button onClick={handleNext} className='btn'>Next</button>
+                <select value={jobsPerPage} onChange={handlePage} name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="10">20</option>
+                </select>
             </div>
             <Footer></Footer>
         </div>

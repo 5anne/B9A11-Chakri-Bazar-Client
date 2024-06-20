@@ -4,7 +4,6 @@ import Footer from "../Shared/Footer";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../Provider/ThemeProvider";
 import { AuthContext } from "../Provider/AuthProvider";
-// import { useLoaderData } from "react-router-dom";
 
 
 const AppliedJobs = () => {
@@ -12,7 +11,8 @@ const AppliedJobs = () => {
     const { users, loading } = useContext(AuthContext);
     // const appliedJobs = useLoaderData();
     const [appliedJobs, setAppliedJobs] = useState([]);
-    const [displayJobs, setDisplayJobs] = useState([])
+    const [displayJobs, setDisplayJobs] = useState([]);
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/appliedJobs')
@@ -22,6 +22,7 @@ const AppliedJobs = () => {
                     const listedJobs = data?.filter(job => job.email === users.email)
                     setAppliedJobs(listedJobs);
                     setDisplayJobs(listedJobs);
+                    
                 }
 
             })
