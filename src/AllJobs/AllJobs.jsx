@@ -4,6 +4,7 @@ import Footer from "../Shared/Footer";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../Provider/ThemeProvider";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 const AllJobs = () => {
@@ -29,6 +30,7 @@ const AllJobs = () => {
                         <thead>
                             <tr className="bg-rose-800 text-white">
                                 <th>Job Title</th>
+                                <th>Number of Applicants</th>
                                 <th>Job Posting Date</th>
                                 <th>Application Deadline</th>
                                 <th>Salary range</th>
@@ -39,10 +41,11 @@ const AllJobs = () => {
                             {
                                 jobData?.map(job => <tr key={job._id} className="text-white bg-rose-600">
                                     <td>{job.jobTitle}</td>
+                                    <td>{job.numberOfApplicants}</td>
                                     <td>{job.jobPostingDate}</td>
                                     <td>{job.applicationDeadline}</td>
                                     <td>{job.salaryRange}</td>
-                                    <td><button className="btn bg-green-950 text-gray-300">View Details</button></td>
+                                    <td><Link to={`/jobDetails/${job._id}`}><button className="btn bg-green-950 text-gray-300">View Details</button></Link></td>
                                 </tr>)
                             }
                         </tbody>
