@@ -17,7 +17,7 @@ const JobCategory = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/jobsJson')
+        fetch('https://chakri-bazar-server-side.vercel.app/jobsJson')
             .then(res => res.json())
             .then(data => {
                 setLoading(true);

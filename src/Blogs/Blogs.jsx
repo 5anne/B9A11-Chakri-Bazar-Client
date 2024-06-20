@@ -11,7 +11,7 @@ const Blogs = () => {
     const { theme } = useContext(ThemeContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogsData')
+        fetch('https://chakri-bazar-server-side.vercel.app/blogsData')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, [])

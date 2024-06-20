@@ -36,7 +36,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/view_details/:_id",
                 element: <PrivateRoutes><ViewJobDetails></ViewJobDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/jobsJson/${params._id}`)
+                loader: ({ params }) => fetch(`https://chakri-bazar-server-side.vercel.app/jobsJson/${params._id}`)
             },
             {
                 path: "/blogs",
@@ -53,7 +53,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/updateJobs/:_id",
                 element: <PrivateRoutes><UpdateJobs></UpdateJobs></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addedJobs/${params._id}`)
+                loader: ({ params }) => fetch(`https://chakri-bazar-server-side.vercel.app/addedJobs/${params._id}`)
             },
             {
                 path: "/all_jobs",
@@ -62,12 +62,12 @@ const Routes = createBrowserRouter([
             {
                 path: "/jobDetails/:_id",
                 element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params._id}`)
+                loader: ({ params }) => fetch(`https://chakri-bazar-server-side.vercel.app/allJobs/${params._id}`)
             },
             {
                 path: "/applied_jobs",
                 element: <PrivateRoutes><AppliedJobs></AppliedJobs></PrivateRoutes>,
-                loader: () => fetch('http://localhost:5000/appliedJobs')
+                loader: () => fetch('https://chakri-bazar-server-side.vercel.app/appliedJobs')
             }
         ]
     },

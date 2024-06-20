@@ -12,7 +12,7 @@ const MyJobs = () => {
     const [myJobs, setMyJobs] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/addedJobs')
+        fetch('https://chakri-bazar-server-side.vercel.app/addedJobs')
             .then(res => res.json())
             .then(data => setMyJobs(data))
     }, [])
@@ -29,7 +29,7 @@ const MyJobs = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addedJobs/${id}`, {
+                fetch(`https://chakri-bazar-server-side.vercel.app/addedJobs/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

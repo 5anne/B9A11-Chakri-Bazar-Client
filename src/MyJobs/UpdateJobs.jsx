@@ -41,7 +41,7 @@ const UpdateJobs = () => {
         }
         console.log(updateJobs);
 
-        fetch(`http://localhost:5000/addedJobs/${addedJobs._id}`, {
+        fetch(`https://chakri-bazar-server-side.vercel.app/addedJobs/${addedJobs._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

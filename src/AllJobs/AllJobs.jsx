@@ -41,7 +41,7 @@ const AllJobs = () => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allJobsCount')
+        axios.get('https://chakri-bazar-server-side.vercel.app/allJobsCount')
             .then(data => {
                 if (!loading) {
                     setCount(data.data.count);
@@ -51,7 +51,7 @@ const AllJobs = () => {
     console.log(count);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allJobs?page=${currentPage}&size=${jobsPerPage}`)
+        fetch(`https://chakri-bazar-server-side.vercel.app/allJobs?page=${currentPage}&size=${jobsPerPage}`)
             .then(res => res.json())
             .then(data => {
                 console.log(currentPage, jobsPerPage);

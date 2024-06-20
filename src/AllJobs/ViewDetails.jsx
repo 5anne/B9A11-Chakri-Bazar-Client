@@ -44,7 +44,7 @@ const ViewDetails = () => {
         if (currentDate.getTime() < applicationObj.getTime()) {
             console.log(`${currentDate} is earlier`);
 
-            axios.post('http://localhost:5000/appliedJobs', appliedInfo)
+            axios.post('https://chakri-bazar-server-side.vercel.app/appliedJobs', appliedInfo)
                 .then(data => {
                     console.log(data.data);
                     if (data.data.insertedId) {
@@ -64,7 +64,7 @@ const ViewDetails = () => {
                     numberOfApplicants: numberOfApplicants + 1
                 }
 
-                fetch(`http://localhost:5000/allJobs/${_id}`, {
+                fetch(`https://chakri-bazar-server-side.vercel.app/allJobs/${_id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

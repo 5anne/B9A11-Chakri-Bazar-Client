@@ -15,7 +15,7 @@ const AppliedJobs = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/appliedJobs')
+        fetch('https://chakri-bazar-server-side.vercel.app/appliedJobs')
             .then(res => res.json())
             .then(data => {
                 if (!loading) {
