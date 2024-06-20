@@ -7,8 +7,8 @@ const BlogsDetails = ({ blog }) => {
 
     const { image, questions, answers, authorName, comments, topic } = blog;
     return (
-        <div className="flex gap-8 p-8 m-8 border-2 border-cyan-950 bg-teal-950 hover:bg-teal-800 rounded-xl">
-            <img className="w-1/2 h-52" src={image} alt="" />
+        <div className="lg:flex gap-8 p-8 m-8 border-2 border-cyan-950 bg-teal-950 hover:bg-teal-800 rounded-xl">
+            <img className="md:w-1/2 h-52 mb-2" src={image} alt="" />
             <div className="">
                 <h1 className="font-bold text-xl text-gray-300 font-serif hover:text-blue-900">{questions}</h1>
                 {

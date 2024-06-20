@@ -55,7 +55,7 @@ const MyJobs = () => {
             </Helmet>
             <Navbar></Navbar>
             <div>
-                <div className="m-16 bg-yellow-900 p-8">
+                <div className="m-16 bg-yellow-900 p-8 overflow-x-auto">
                     <h1 className="font-bold font-serif text-3xl text-center text-blue-950 mb-8">All Added Jobs</h1>
                     <table className="table table-xs table-pin-rows table-pin-cols ">
                         <thead>

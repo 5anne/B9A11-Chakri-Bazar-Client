@@ -5,7 +5,7 @@ import { MdEmail } from "react-icons/md";
 const Footer = () => {
     return (
         <div>
-            <footer className="p-20 bg-black text-gray-400">
+            <footer className="p-8 lg:p-20 bg-black text-gray-400">
                 <div className="border-[1px] border-gray-600 border-dashed mb-10"></div>
                 <div className="footer">
                     <div>
@@ -37,13 +37,13 @@ const Footer = () => {
                     </nav>
                     <form>
                         <h6 className="footer-title">Newsletter</h6>
-                        <fieldset className="form-control w-80">
+                        <fieldset className="form-control lg:w-80">
                             <label className="label">
                                 <span className="label-text text-gray-600">Enter your email address</span>
                             </label>
                             <div className="join">
-                                <input type="text" placeholder="username@site.com" className="input input-bordered join-item" />
-                                <button className="btn btn-primary join-item">Subscribe</button>
+                                <input type="text" placeholder="username@site.com" className="input input-bordered join-item md:w-12 lg:w-full" />
+                                <button className="btn btn-primary join-item md:w-20">Subscribe</button>
                             </div>
                         </fieldset>
                     </form>

@@ -144,7 +144,7 @@ const UpdateJobs = () => {
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <button className="border-2 border-blue-950 bg-blue-800 hover:bg-blue-600 rounded-sm px-4 py-2 text-white font-semibold mt-8">Add Job</button>
+                        <button className="border-2 border-blue-950 bg-blue-800 hover:bg-blue-600 rounded-sm px-4 py-2 text-white font-semibold mt-8">Update Job</button>
                     </div>
                 </form>
             </div>

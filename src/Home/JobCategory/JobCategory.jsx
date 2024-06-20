@@ -53,7 +53,7 @@ const JobCategory = () => {
             <ScrollAnimation duration={5}
                 animateIn='hinge'
                 initiallyVisible={true}>
-                <h1 className="font-bold text-center text-3xl font-display border-2 px-6 py-4 border-orange-800 uppercase mt-6 mb-16 w-1/2 mx-auto">All Job Categories</h1>
+                <h1 className="font-bold text-center text-lg md:text-3xl font-display border-2 px-6 py-4 border-orange-800 uppercase mt-6 mb-16 w-1/2 mx-auto">All Job Categories</h1>
             </ScrollAnimation>
             <Tabs>
                 <TabList>
@@ -66,7 +66,7 @@ const JobCategory = () => {
 
                 <TabPanel>
 
-                    <div className="grid grid-cols-3 gap-10 my-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-8">
                         {
                             jobs?.map(job => <div key={job._id}>
                                 <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
@@ -88,7 +88,7 @@ const JobCategory = () => {
 
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 my-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-8">
                         {
                             onSiteJobs?.map(job => <div key={job._id}>
                                 <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
@@ -109,7 +109,7 @@ const JobCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 my-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-8">
                         {
                             remoteJobs?.map(job => <div key={job._id}>
                                 <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
@@ -130,7 +130,7 @@ const JobCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 my-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-8">
                         {
                             hybridJobs?.map(job => <div key={job._id}>
                                 <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">
@@ -151,7 +151,7 @@ const JobCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid grid-cols-2 gap-10 my-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-8">
                         {
                             partTimeJobs?.map(job => <div key={job._id}>
                                 <div className="card border-2 border-teal-800 bg-emerald-900 shadow-xl">

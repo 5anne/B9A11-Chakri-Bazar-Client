@@ -12,7 +12,7 @@ const AppliedJobs = () => {
     // const appliedJobs = useLoaderData();
     const [appliedJobs, setAppliedJobs] = useState([]);
     const [displayJobs, setDisplayJobs] = useState([]);
-    
+
 
     useEffect(() => {
         fetch('http://localhost:5000/appliedJobs')
@@ -22,7 +22,7 @@ const AppliedJobs = () => {
                     const listedJobs = data?.filter(job => job.email === users.email)
                     setAppliedJobs(listedJobs);
                     setDisplayJobs(listedJobs);
-                    
+
                 }
 
             })
@@ -59,7 +59,7 @@ const AppliedJobs = () => {
             </Helmet>
             <Navbar></Navbar>
             <div>
-                <div className="flex gap-4 w-20 mx-auto text-gray-300 mt-8">
+                <div className="flex gap-4 w-20 mx-auto text-gray-400 mt-8">
                     <p>Filter</p>
                     <select onChange={handleFilter} className="text-black" name="" id="">
                         <option value="All">All</option>
@@ -69,7 +69,7 @@ const AppliedJobs = () => {
                         <option value="Part-time">Part-time</option>
                     </select>
                 </div>
-                <div className="m-20 bg-blue-900">
+                <div className="m-8 md:m-20 bg-blue-900 overflow-x-auto">
                     <table className="table">
                         {/* head */}
                         <thead className="bg-blue-950 text-gray-100">

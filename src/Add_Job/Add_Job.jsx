@@ -29,7 +29,7 @@ const Add_Job = () => {
         const newJobs = { image, job_name, jobCategory_name, salary_range, job_description, job_posted_at, deadline, applicants_number }
         console.log(newJobs);
 
-        fetch('http://localhost:5000/addJobs', {
+        fetch('http://localhost:5000/addedJobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

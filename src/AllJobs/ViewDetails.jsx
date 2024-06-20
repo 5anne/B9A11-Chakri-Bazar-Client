@@ -93,10 +93,10 @@ const ViewDetails = () => {
                 <title>Chakri Bazar ~ Single Job Details</title>
             </Helmet>
             <Navbar></Navbar>
-            <div className=" bg-slate-400 my-28 mx-40 p-20 shadow-2xl rounded-md">
+            <div className=" bg-slate-400 my-28 mx-10 lg:mx-40 p-4 md:p-20 shadow-2xl rounded-md">
                 <div className="flex flex-col-reverse justify-center">
-                    <img className="w-1/2 mx-auto" src={image} alt="" />
-                    <div className="w-1/2 mx-auto mb-8 leading-loose">
+                    <img className="lg:w-1/2 mx-auto" src={image} alt="" />
+                    <div className="lg:w-1/2 mx-auto mb-8 leading-loose">
                         <h1 className="font-bold font-display text-2xl text-blue-950">Job Name: {jobTitle}</h1>
                         <p className="text-gray-800"><span className="font-semibold text-lg text-blue-800">Job Description:</span> {description}</p>
                         <p><span className="font-semibold text-lg">Salary:</span> {salaryRange}</p>

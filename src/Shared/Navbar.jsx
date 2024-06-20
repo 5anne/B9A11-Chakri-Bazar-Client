@@ -39,10 +39,16 @@ const Navbar = () => {
         <div className="flex justify-between items-center bg-gradient-to-r from-gray-200 to-gray-200 p-4 mb-8">
             <div className="flex gap-3 items-center">
                 <img className="w-10" src="https://i.postimg.cc/k5WHwq7j/worldwide-12041684-2.png" alt="" />
-                <h2 className="font-bold text-2xl font-serif uppercase">chakri bazar</h2>
+                <h2 className="font-bold md:text-2xl font-serif uppercase">chakri bazar</h2>
             </div>
-            <div className="flex gap-3 items-center font-semibold text-gray-600">
+            <div className="hidden md:flex gap-3 items-center font-semibold text-gray-600">
                 {links}
+            </div>
+            <div className="dropdown md:hidden">
+                <div tabIndex={0} role="button" className="hover:font-bold mr-2">Menu</div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                    {links}
+                </ul>
             </div>
             <div className="flex gap-3 items-center">
                 {
