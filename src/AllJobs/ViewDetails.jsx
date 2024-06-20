@@ -14,7 +14,8 @@ const ViewDetails = () => {
     const { theme } = useContext(ThemeContext);
     const { users, loading } = useContext(AuthContext);
     const singleJobDetails = useLoaderData();
-    const { _id, image, jobTitle, description, salaryRange, numberOfApplicants, applicationDeadline } = singleJobDetails;
+    const { _id, image, jobTitle, description, salaryRange, numberOfApplicants, applicationDeadline,
+        employerName, jobCategory } = singleJobDetails;
 
     const handleApply = e => {
         e.preventDefault();
@@ -23,12 +24,25 @@ const ViewDetails = () => {
         console.log(resume);
 
         const { displayName, email } = users;
-        const appliedInfo = { displayName, email, jobTitle, description, salaryRange, numberOfApplicants, resume };
+        const appliedInfo = {
+            displayName, email, jobTitle, description, salaryRange, numberOfApplicants, resume,
+            employerName, jobCategory
+        };
 
-        const currentDate = new String(new Date());
+        const currentDate = new Date();
+        const applicationObj = new Date(applicationDeadline);
+        // console.log(currentDate, applicationObj);
+        // console.log(typeof (currentDate), typeof (applicationObj));
+        // console.log(currentDate.getTime(), applicationObj.getTime());
+        // console.log(currentDate.getDate(), applicationObj.getDate());
+        // console.log(currentDate.getMonth(), applicationObj.getMonth());
+        // console.log(currentDate.getFullYear(), applicationObj.getFullYear());
+        // console.log(currentDate.getHours(), applicationObj.getHours());
+        // console.log(currentDate.getMinutes(), applicationObj.getMinutes());
+        // console.log(currentDate.getSeconds(), applicationObj.getSeconds());
 
-        if (currentDate < applicationDeadline) {
-            console.log('Yes');
+        if (currentDate.getTime() < applicationObj.getTime()) {
+            console.log(`${currentDate} is earlier`);
 
             axios.post('http://localhost:5000/appliedJobs', appliedInfo)
                 .then(data => {

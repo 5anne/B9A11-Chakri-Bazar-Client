@@ -23,12 +23,13 @@ const AllJobs = () => {
             </Helmet>
             <Navbar></Navbar>
             <div>
-                <h1 className="text-center text-gray-300 font-bold text-3xl mt-20 font-display">All Vacant Jobs Avilable For You</h1>
+                <h1 className="text-center text-gray-400 font-bold text-3xl mt-20 font-display">All Vacant Jobs Avilable For You</h1>
                 <p className="border-2 border-gray-400 mt-8 w-28 mx-auto"></p>
                 <div className="flex justify-center">
                     <table className="table table-xs m-16">
                         <thead>
                             <tr className="bg-rose-800 text-white">
+                                <th>Employer</th>
                                 <th>Job Title</th>
                                 <th>Number of Applicants</th>
                                 <th>Job Posting Date</th>
@@ -39,13 +40,14 @@ const AllJobs = () => {
                         </thead>
                         <tbody>
                             {
-                                jobData?.map(job => <tr key={job._id} className="text-white bg-rose-600">
+                                jobData?.map(job => <tr key={job._id} className="text-black bg-rose-300">
+                                    <td>{job.employerName}</td>
                                     <td>{job.jobTitle}</td>
                                     <td>{job.numberOfApplicants}</td>
                                     <td>{job.jobPostingDate}</td>
                                     <td>{job.applicationDeadline}</td>
                                     <td>{job.salaryRange}</td>
-                                    <td><Link to={`/jobDetails/${job._id}`}><button className="btn bg-green-950 text-gray-300">View Details</button></Link></td>
+                                    <td><Link to={`/jobDetails/${job._id}`}><button className="btn bg-rose-900 text-gray-300">View Details</button></Link></td>
                                 </tr>)
                             }
                         </tbody>
