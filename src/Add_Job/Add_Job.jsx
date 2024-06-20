@@ -58,7 +58,7 @@ const Add_Job = () => {
             </Helmet>
             <Navbar></Navbar>
             <div className="md:p-24">
-                <form onSubmit={handleSubmit} action="" className="p-10 bg-orange-200">
+                <form onSubmit={handleSubmit} action="" className="p-10 bg-blue-200">
                     <h1 className="font-bold font-serif text-3xl text-center text-blue-950 mb-8">Add a New Job</h1>
                     <div className="md:flex gap-10">
                         <div className="md:w-1/2">

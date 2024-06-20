@@ -50,7 +50,7 @@ const AppliedJobs = () => {
             setDisplayJobs(filteredJobs);
         }
     }
-    
+
     return (
         <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000' }}>
             <Helmet>

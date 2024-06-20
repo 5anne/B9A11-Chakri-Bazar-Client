@@ -24,7 +24,7 @@ const Blogs = () => {
             </Helmet>
             <Navbar></Navbar>
             <div>
-                <h1 className="font-bold text-center text-3xl font-display uppercase my-12 w-1/2 mx-auto">All Latest Blogs</h1>
+                <h1 className="font-bold text-center text-3xl font-display text-gray-500 uppercase my-12 w-1/2 mx-auto">All Latest Blogs</h1>
                 {
                     blogs.map(blog => <BlogsDetails key={blog.id} blog={blog}></BlogsDetails>)
                 }

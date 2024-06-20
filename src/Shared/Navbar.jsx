@@ -7,7 +7,7 @@ import { ThemeContext } from "../Provider/ThemeProvider";
 
 const Navbar = () => {
     const { users, logOut } = useContext(AuthContext);
-    console.log(users);
+    // console.log(users);
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     const handleLogOut = () => {
@@ -21,12 +21,13 @@ const Navbar = () => {
     }
 
     const links = <>
-        <NavLink to="/" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Home</NavLink>
-        <NavLink to="/blogs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Blogs</NavLink>
-        <NavLink to="/add_job" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Add Job</NavLink>
-        <NavLink to="/all_jobs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>All Jobs</NavLink>
-        <NavLink to="/applied_jobs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>Applied Jobs</NavLink>
-        <NavLink to="/my_jobs" className={({ isActive }) => (isActive && 'border-2 border-blue-900 rounded-lg p-2')}>My Jobs</NavLink>
+        <NavLink to="/" className={({ isActive }) => (isActive ? 'border-2 border-blue-900 rounded-lg p-2' : undefined)}>Home</NavLink>
+        <NavLink to="/blogs" className={({ isActive }) => (isActive ? 'border-2 border-blue-900 rounded-lg p-2' : undefined)}>Blogs</NavLink>
+        <NavLink to="/add_job" className={({ isActive }) => (isActive ? 'border-2 border-blue-900 rounded-lg p-2' : undefined)}>Add Job</NavLink>
+        <NavLink to="/my_jobs" className={({ isActive }) => (isActive ? 'border-2 border-blue-900 rounded-lg p-2' : undefined)}>My Jobs</NavLink>
+        <NavLink to="/all_jobs" className={({ isActive }) => (isActive ? 'border-2 border-blue-900 rounded-lg p-2' : undefined)}>All Jobs</NavLink>
+        <NavLink to="/applied_jobs" className={({ isActive }) => (isActive ? 'border-2 border-blue-900 rounded-lg p-2' : undefined)}>Applied Jobs</NavLink>
+
 
     </>
     return (
@@ -49,7 +50,6 @@ const Navbar = () => {
                         </div> :
                         <div className="flex gap-4">
                             <Link to="/login"><button className="btn btn-outline btn-info">Log In</button></Link>
-                            <Link to="/register"><button className="btn btn-outline btn-info">Register</button></Link>
                         </div>
                 }
                 <div>
